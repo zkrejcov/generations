@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='App'>
+    <inherits name='com.google.gwt.user.User' />
+    <inherits name="com.github.gwtbootstrap.Bootstrap" />
+    <entry-point class='org.test.generations.client.App' />
+    <source path='client' />
+
+</module>
