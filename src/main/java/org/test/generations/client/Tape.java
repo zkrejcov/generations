@@ -2,7 +2,6 @@ package org.test.generations.client;
 
 import com.github.gwtbootstrap.client.ui.ButtonGroup;
 import com.github.gwtbootstrap.client.ui.FluidRow;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Widget;
 
 public class Tape extends FluidRow {
@@ -25,7 +24,6 @@ public class Tape extends FluidRow {
 
     private void setColor(PrescriptionButton button, Tape previous) {
         int index = group.getWidgetIndex(button);
-        // TODO
         // determine indexes
         int left = (index > 0)? index - 1: cellCount - 1;
         int right = (index < cellCount - 1)? index + 1: 0;

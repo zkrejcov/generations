@@ -1,6 +1,7 @@
 package org.test.generations.client;
 
 import static org.test.generations.client.PrescriptionColor.WHITE;
+
 import com.github.gwtbootstrap.client.ui.ButtonGroup;
 
 public class ThreeButtonsGroup extends ButtonGroup {

@@ -2,6 +2,7 @@ package org.test.generations.client;
 
 import static org.test.generations.client.PrescriptionColor.BLACK;
 import static org.test.generations.client.PrescriptionColor.WHITE;
+
 import com.github.gwtbootstrap.client.ui.Button;
 
 public class PrescriptionButton extends Button {
@@ -47,9 +48,6 @@ public class PrescriptionButton extends Button {
             return true;
         }
         PrescriptionButton otherButton = (PrescriptionButton) obj;
-        if (this.getColor() == otherButton.getColor()) {
-            return true;
-        }
-        return false;
+        return this.getColor() == otherButton.getColor();
     }
 }

@@ -1,0 +1,8 @@
+.btn:hover.white,
+.btn:focus.white,
+.btn:active.white,
+.btn.white {background-color: white; background-image: none; outline: none; border-color: black; border-width: 1px; border-style: solid}
+.btn:hover.black,
+.btn:focus.black,
+.btn:active.black,
+.btn.black {background-color: black; background-image: none; outline: none}

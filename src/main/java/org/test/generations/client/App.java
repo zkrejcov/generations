@@ -2,12 +2,12 @@ package org.test.generations.client;
 
 import static org.test.generations.client.PrescriptionColor.BLACK;
 import static org.test.generations.client.PrescriptionColor.WHITE;
+
 import java.util.HashSet;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
 
 import com.github.gwtbootstrap.client.ui.Button;
-import com.github.gwtbootstrap.client.ui.FluidRow;
 import com.github.gwtbootstrap.client.ui.FormLabel;
 import com.github.gwtbootstrap.client.ui.Row;
 import com.github.gwtbootstrap.client.ui.TextBox;
@@ -42,7 +42,7 @@ public class App implements EntryPoint {
         root.add(createPrescription());
     }
 
-    private Row createForm() {
+    private WellForm createForm() {
         FormLabel label = new FormLabel("Number of cells on a tape:");
 
         WellForm form = new WellForm();
@@ -57,17 +57,14 @@ public class App implements EntryPoint {
             }
         }));
 
-        FluidRow row = new FluidRow();
-        row.add(form);
-
-        return row;
+        return form;
     }
 
     private void addTapePanel() {
         String input = cellCountInput.getText().trim();
         cellCountInput.setFocus(true);
         if (!input.matches("\\d+")) {
-            Window.alert("The number you entered is invalid -- it needs to be an integer >= 0.");
+            Window.alert("Argument is invalid or missing \u2014 integer \u2265 0 expected.");
             cellCountInput.selectAll();
         } else {
             cellCountInput.setText("");
