@@ -4,6 +4,8 @@ import static org.test.generations.client.PrescriptionColor.BLACK;
 import static org.test.generations.client.PrescriptionColor.WHITE;
 
 import com.github.gwtbootstrap.client.ui.Button;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 
 public class PrescriptionButton extends Button {
 
@@ -13,7 +15,13 @@ public class PrescriptionButton extends Button {
 
     public PrescriptionButton() {
         this(PrescriptionColor.getDefault());
-        addClickHandler(new PrescriptionButtonClickHandler());
+        addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                PrescriptionButton source = (PrescriptionButton) event.getSource();
+                source.switchColor();
+            }
+        });
     }
 
     public PrescriptionButton(PrescriptionColor color) {
@@ -33,9 +41,13 @@ public class PrescriptionButton extends Button {
     }
 
     public void switchColor() {
-        switch(getColor()) {
-            case WHITE: setColor(BLACK); break;
-            case BLACK: setColor(WHITE); break;
+        switch (getColor()) {
+            case WHITE:
+                setColor(BLACK);
+                break;
+            case BLACK:
+                setColor(WHITE);
+                break;
         }
     }
 
