@@ -7,8 +7,12 @@ import com.github.gwtbootstrap.client.ui.constants.IconRotate;
 import com.googlecode.gwt.test.patchers.PatchClass;
 import com.googlecode.gwt.test.patchers.PatchMethod;
 
+/**
+ * https://github.com/gwt-test-utils/gwt-test-utils/issues/29
+ * problematic getElement() calls
+ */
 @PatchClass(Icon.class)
-public class MyPatcher {
+public class IconPatcher {
 
     @PatchMethod
     static void setAlignment(Icon icon, final Alignment alignment) {
