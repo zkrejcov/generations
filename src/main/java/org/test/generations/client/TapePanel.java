@@ -19,7 +19,7 @@ public class TapePanel extends ComplexWidget {
 
     public TapePanel(int cellCount, Set<Prescription> prescriptions) {
         super("div");
-        prescriptionsCurrent = new HashMap<>(8);
+        prescriptionsCurrent = new HashMap<ThreeButtonsGroup, Prescription>(8);
         for (Prescription p : prescriptions) {
             prescriptionsCurrent.put((ThreeButtonsGroup) p.getOrigin(), p);
         }

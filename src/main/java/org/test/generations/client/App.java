@@ -4,9 +4,9 @@ import static org.test.generations.client.PrescriptionColor.BLACK;
 import static org.test.generations.client.PrescriptionColor.WHITE;
 
 import java.util.HashSet;
+
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
-
 import com.github.gwtbootstrap.client.ui.Button;
 import com.github.gwtbootstrap.client.ui.FormLabel;
 import com.github.gwtbootstrap.client.ui.Row;
@@ -79,7 +79,7 @@ public class App implements EntryPoint {
     private Row createPrescription() {
         Row row = new Row();
         row.addStyleName("prescription");
-        prescriptions = new HashSet<>(8);
+        prescriptions = new HashSet<Prescription>(8);
         for (int i = 0; i < 8; i++) {
             Prescription p = new Prescription(result[i][0], result[i][1], result[i][2]);
             row.add(p);

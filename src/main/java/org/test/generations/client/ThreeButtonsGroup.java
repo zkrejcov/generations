@@ -21,17 +21,17 @@ public class ThreeButtonsGroup extends ButtonGroup {
             return true;
         }
         ThreeButtonsGroup otherGroup = (ThreeButtonsGroup) o;
-        return (this.getWidget(0).equals(otherGroup.getWidget(0))) &&
-            (this.getWidget(1).equals(otherGroup.getWidget(1))) &&
-            (this.getWidget(2).equals(otherGroup.getWidget(2)));
+        return (this.getWidget(0).equals(otherGroup.getWidget(0)))
+            && (this.getWidget(1).equals(otherGroup.getWidget(1)))
+            && (this.getWidget(2).equals(otherGroup.getWidget(2)));
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (((PrescriptionButton)getWidget(0)).getColor()==WHITE)?1:2;
-        hash += (((PrescriptionButton)getWidget(1)).getColor()==WHITE)?10:20;
-        hash += (((PrescriptionButton)getWidget(2)).getColor()==WHITE)?100:200;
+        hash += (((PrescriptionButton) getWidget(0)).getColor() == WHITE) ? 1 : 2;
+        hash += (((PrescriptionButton) getWidget(1)).getColor() == WHITE) ? 10 : 20;
+        hash += (((PrescriptionButton) getWidget(2)).getColor() == WHITE) ? 100 : 200;
         return hash;
     }
 }

@@ -25,8 +25,8 @@ public class Tape extends FluidRow {
     private void setColor(PrescriptionButton button, Tape previous) {
         int index = group.getWidgetIndex(button);
         // determine indexes
-        int left = (index > 0)? index - 1: cellCount - 1;
-        int right = (index < cellCount - 1)? index + 1: 0;
+        int left = (index > 0) ? index - 1 : cellCount - 1;
+        int right = (index < cellCount - 1) ? index + 1 : 0;
         // get colors
         PrescriptionColor leftColor = previous.getColorAt(left);
         PrescriptionColor middleColor = previous.getColorAt(index);

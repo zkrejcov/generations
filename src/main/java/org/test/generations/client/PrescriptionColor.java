@@ -1,6 +1,7 @@
 package org.test.generations.client;
 
 public enum PrescriptionColor {
+
     WHITE, BLACK;
 
     public static PrescriptionColor getDefault() {
