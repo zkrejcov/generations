@@ -1,64 +1,39 @@
-
 package org.test.generations.client;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import static org.test.generations.client.PrescriptionColor.BLACK;
+import static org.test.generations.client.PrescriptionColor.WHITE;
+import static com.googlecode.gwt.test.assertions.GwtAssertions.assertThat;
+
+import com.googlecode.gwt.test.GwtModule;
+import com.googlecode.gwt.test.GwtTest;
+import com.googlecode.gwt.test.utils.events.Browser;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-/**
- *
- * @author zkrejcov
- */
-public class PrescriptionTest {
+@GwtModule("org.test.generations.App")
+public class PrescriptionTest extends GwtTest {
 
-    public PrescriptionTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of getOrigin method, of class Prescription.
-     */
     @Test
     public void testGetOrigin() {
-        System.out.println("getOrigin");
-        Prescription instance = null;
-        ThreeButtonsGroup expResult = null;
+        Prescription instance = new Prescription(WHITE, BLACK, WHITE);
+        ThreeButtonsGroup expResult = new ThreeButtonsGroup(WHITE, BLACK, WHITE);
         ThreeButtonsGroup result = instance.getOrigin();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertThat(result).isEqualTo(expResult);
     }
 
-    /**
-     * Test of getResult method, of class Prescription.
-     */
     @Test
     public void testGetResult() {
-        System.out.println("getResult");
-        Prescription instance = null;
-        PrescriptionButton expResult = null;
+        Prescription instance = new Prescription(WHITE, BLACK, WHITE);
+        PrescriptionButton expResult = new PrescriptionButton();
         PrescriptionButton result = instance.getResult();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertThat(result).isEqualTo(expResult);
     }
 
+    @Test
+    public void testGetModifiedResult() {
+        Prescription instance = new Prescription(WHITE, BLACK, WHITE);
+        Browser.click(instance.getResult());
+        PrescriptionButton expResult = new PrescriptionButton(BLACK);
+        PrescriptionButton result = instance.getResult();
+        assertThat(result).isEqualTo(expResult);
+    }
 }

@@ -31,6 +31,17 @@
             <version>4.10</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.googlecode.gwt-test-utils</groupId>
+            <artifactId>gwt-test-utils</artifactId>
+            <version>0.47</version>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.gwt-test-utils</groupId>
+            <artifactId>gwt-test-utils-gwtbootstrap</artifactId>
+            <version>0.46</version>
+  <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -65,4 +76,16 @@
         </plugins>
     </build>
 
+    <repositories>
+        <repository>
+            <id>sonatype-snapshots</id>
+            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
 </project>
