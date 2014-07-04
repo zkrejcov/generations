@@ -1,85 +1,56 @@
 package org.test.generations.client;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import static com.googlecode.gwt.test.assertions.GwtAssertions.assertThat;
+import static org.junit.Assert.assertEquals;
+import static org.test.generations.client.PrescriptionColor.WHITE;
+import static org.test.generations.client.PrescriptionColor.BLACK;
+
+import com.googlecode.gwt.test.GwtModule;
+import com.googlecode.gwt.test.GwtTest;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-public class PrescriptionButtonTest {
+@GwtModule("org.test.generations.App")
+public class PrescriptionButtonTest extends GwtTest {
 
-    public PrescriptionButtonTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of getColor method, of class PrescriptionButton.
-     */
     @Test
     public void testGetColor() {
-        System.out.println("getColor");
-        PrescriptionButton instance = new PrescriptionButton();
-        PrescriptionColor expResult = null;
-        PrescriptionColor result = instance.getColor();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        PrescriptionButton instance1 = new PrescriptionButton();
+        PrescriptionButton instance2 = new PrescriptionButton(WHITE);
+        PrescriptionButton instance3 = new PrescriptionButton(BLACK);
+        assertEquals(WHITE, instance1.getColor());
+        assertEquals(WHITE, instance2.getColor());
+        assertEquals(BLACK, instance3.getColor());
     }
 
-    /**
-     * Test of setColor method, of class PrescriptionButton.
-     */
     @Test
     public void testSetColor() {
-        System.out.println("setColor");
-        PrescriptionColor newColor = null;
-        PrescriptionButton instance = new PrescriptionButton();
-        instance.setColor(newColor);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        PrescriptionButton instance = new PrescriptionButton(WHITE);
+        instance.setColor(BLACK);
+        assertEquals(BLACK, instance.getColor());
+        instance.setColor(WHITE);
+        assertEquals(WHITE, instance.getColor());
     }
 
-    /**
-     * Test of switchColor method, of class PrescriptionButton.
-     */
     @Test
     public void testSwitchColor() {
-        System.out.println("switchColor");
-        PrescriptionButton instance = new PrescriptionButton();
+        PrescriptionButton instance = new PrescriptionButton(WHITE);
         instance.switchColor();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(BLACK, instance.getColor());
+        instance.switchColor();
+        assertEquals(WHITE, instance.getColor());
     }
 
-    /**
-     * Test of equals method, of class PrescriptionButton.
-     */
     @Test
     public void testEquals() {
-        System.out.println("equals");
-        Object obj = null;
-        PrescriptionButton instance = new PrescriptionButton();
-        boolean expResult = false;
-        boolean result = instance.equals(obj);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+        PrescriptionButton instance1 = new PrescriptionButton();
+        PrescriptionButton instance2 = new PrescriptionButton(WHITE);
+        PrescriptionButton instance3 = new PrescriptionButton(BLACK);
+        PrescriptionButton instance4 = new PrescriptionButton(BLACK);
 
+        assertThat(instance1).isEqualTo(instance2);
+        assertThat(instance3).isEqualTo(instance4);
+
+        assertThat(instance1).isNotEqualTo(instance3);
+        assertThat(instance2).isNotEqualTo(instance4);
+    }
 }

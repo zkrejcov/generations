@@ -1,46 +1,38 @@
 package org.test.generations.client;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import static com.googlecode.gwt.test.assertions.GwtAssertions.assertThat;
+import static org.test.generations.client.PrescriptionColor.WHITE;
+import static org.test.generations.client.PrescriptionColor.BLACK;
+
+import com.googlecode.gwt.test.GwtModule;
+import com.googlecode.gwt.test.GwtTest;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-public class ThreeButtonsGroupTest {
+@GwtModule("org.test.generations.App")
+public class ThreeButtonsGroupTest extends GwtTest {
 
-    public ThreeButtonsGroupTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of equals method, of class ThreeButtonsGroup.
-     */
     @Test
     public void testEquals() {
-        System.out.println("equals");
-        Object o = null;
-        ThreeButtonsGroup instance = null;
-        boolean expResult = false;
-        boolean result = instance.equals(o);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ThreeButtonsGroup www1 = new ThreeButtonsGroup(WHITE, WHITE, WHITE);
+        ThreeButtonsGroup www2 = new ThreeButtonsGroup(WHITE, WHITE, WHITE);
+        ThreeButtonsGroup bbb1 = new ThreeButtonsGroup(BLACK, BLACK, BLACK);
+        ThreeButtonsGroup bbb2 = new ThreeButtonsGroup(BLACK, BLACK, BLACK);
+        ThreeButtonsGroup wbw1 = new ThreeButtonsGroup(WHITE, BLACK, WHITE);
+        ThreeButtonsGroup wbw2 = new ThreeButtonsGroup(WHITE, BLACK, WHITE);
+
+        assertThat(www1).isEqualTo(www2);
+        assertThat(bbb1).isEqualTo(bbb2);
+        assertThat(wbw1).isEqualTo(wbw2);
+
+        assertThat(www1).isNotEqualTo(bbb1);
+        assertThat(www1).isNotEqualTo(wbw1);
     }
 
+    @Test
+    public void testCreate() {
+        ThreeButtonsGroup instance = new ThreeButtonsGroup(WHITE, BLACK, WHITE);
+        assertThat(instance.getWidget(0)).isEqualTo(new PrescriptionButton(WHITE));
+        assertThat(instance.getWidget(1)).isEqualTo(new PrescriptionButton(BLACK));
+        assertThat(instance.getWidget(2)).isEqualTo(new PrescriptionButton(WHITE));
+    }
 }

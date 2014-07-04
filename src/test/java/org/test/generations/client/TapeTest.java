@@ -7,7 +7,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class TapeTest {
+import com.googlecode.gwt.test.GwtModule;
+import com.googlecode.gwt.test.GwtTest;
+
+@GwtModule("org.test.generations.App")
+public class TapeTest extends GwtTest {
 
     public TapeTest() {
     }

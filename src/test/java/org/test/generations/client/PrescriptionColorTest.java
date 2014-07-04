@@ -18,5 +18,4 @@ public class PrescriptionColorTest {
         assertEquals(WHITE, PrescriptionColor.deduceColor("btn white"));
         assertEquals(BLACK, PrescriptionColor.deduceColor("btn black"));
     }
-
 }

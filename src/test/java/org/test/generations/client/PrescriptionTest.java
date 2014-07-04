@@ -15,25 +15,22 @@ public class PrescriptionTest extends GwtTest {
     @Test
     public void testGetOrigin() {
         Prescription instance = new Prescription(WHITE, BLACK, WHITE);
-        ThreeButtonsGroup expResult = new ThreeButtonsGroup(WHITE, BLACK, WHITE);
         ThreeButtonsGroup result = instance.getOrigin();
-        assertThat(result).isEqualTo(expResult);
+        assertThat(result).isEqualTo(new ThreeButtonsGroup(WHITE, BLACK, WHITE));
     }
 
     @Test
     public void testGetResult() {
         Prescription instance = new Prescription(WHITE, BLACK, WHITE);
-        PrescriptionButton expResult = new PrescriptionButton();
         PrescriptionButton result = instance.getResult();
-        assertThat(result).isEqualTo(expResult);
+        assertThat(result).isEqualTo(new PrescriptionButton());
     }
 
     @Test
     public void testGetModifiedResult() {
         Prescription instance = new Prescription(WHITE, BLACK, WHITE);
         Browser.click(instance.getResult());
-        PrescriptionButton expResult = new PrescriptionButton(BLACK);
         PrescriptionButton result = instance.getResult();
-        assertThat(result).isEqualTo(expResult);
+        assertThat(result).isEqualTo(new PrescriptionButton(BLACK));
     }
 }
