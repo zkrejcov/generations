@@ -63,8 +63,8 @@ public class App implements EntryPoint {
     private void addTapePanel() {
         String input = cellCountInput.getText().trim();
         cellCountInput.setFocus(true);
-        if (!input.matches("\\d+")) {
-            Window.alert("Argument is invalid or missing \u2014 integer \u2265 0 expected.");
+        if (!isValid(input)) {
+            Window.alert("Argument is invalid or missing \u2014 integer \u2265 1 expected.");
             cellCountInput.selectAll();
         } else {
             cellCountInput.setText("");
@@ -74,6 +74,10 @@ public class App implements EntryPoint {
             tapePanel = new TapePanel(Integer.parseInt(input), prescriptions);
             root.add(tapePanel);
         }
+    }
+
+    public boolean isValid(String text) {
+        return (text.matches("\\d+") && (Integer.parseInt(text) > 0));
     }
 
     private Row createPrescription() {
