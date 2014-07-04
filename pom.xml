@@ -35,12 +35,13 @@
             <groupId>com.googlecode.gwt-test-utils</groupId>
             <artifactId>gwt-test-utils</artifactId>
             <version>0.47</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.googlecode.gwt-test-utils</groupId>
             <artifactId>gwt-test-utils-gwtbootstrap</artifactId>
             <version>0.46</version>
-  <scope>test</scope>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
